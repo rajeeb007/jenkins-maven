@@ -9,6 +9,15 @@ pipeline {
                 git branch: 'main', credentialsId: 'git_key', url: 'https://github.com/rajeeb007/jenkins-maven.git'
             }
         }
+        stage('docker image building') {
+
+            steps {
+
+                sh 'mvn install'
+               
+            }
+
+        }
         stage('code scanner') {
             steps {
                 withSonarQubeEnv(credentialsId: 'sonar_key',installationName:'sonarqube') {
