@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         DOCKERHUB_CREDENTIALS = credentials('docker_key')
+        AWS_ACCOUNT_ID="170771122394"
     }
     stages{
         stage('git checkout'){
@@ -59,6 +60,15 @@ pipeline {
                 sh "helm package jenkins-maven/"
             }
             
+        }
+        stage('login to aws and push to ecr'){
+            steps {
+                script {
+                    withCredentials([aws(credentialsId: 'aws_key', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        sh "aws ecr get-login-password | helm registry login  --username AWS -p \$(aws ecr get-login-password --region ap-south-1)  170771122394.dkr.ecr.ap-south-1.amazonaws.com"
+                    }
+                }
+            }
         }    
 
     }
