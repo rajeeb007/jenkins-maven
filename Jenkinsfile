@@ -22,7 +22,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/for-helm .'
+                sh 'docker build -t rajeeb007/for-helm:latest .'
                
             }
 
@@ -40,7 +40,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/for-helm'
+                sh 'docker push rajeeb007/for-helm:latest'
 
             }
 
