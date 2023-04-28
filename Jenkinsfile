@@ -22,7 +22,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/for_helm:2.0 .'
+                sh 'docker build -t rajeeb007/hello-world1 .'
                
             }
 
