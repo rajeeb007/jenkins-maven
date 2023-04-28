@@ -31,7 +31,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/for_helm:latest .'
+                sh 'docker build -t rajeeb007/for_helm:2.0 .'
                
             }
 
@@ -49,7 +49,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/for_helm:latest'
+                sh 'docker push rajeeb007/for_helm:2.0'
 
             }
 
@@ -58,7 +58,7 @@ pipeline {
             steps {
 
                 
-                sh "sed -i 's|rajeeb007/for_helm:latest|rajeeb007/for_helm:1.0|g' jenkins-maven/values.yaml"
+                sh "sed -i 's|rajeeb007/for_helm:2.0|rajeeb007/for_helm:2.1|g' jenkins-maven/values.yaml"
 
             }
         }
