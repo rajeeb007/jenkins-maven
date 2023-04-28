@@ -40,7 +40,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/for_helm:2.0'
+                sh 'docker push rajeeb007/hello-world1'
 
             }
 
@@ -49,7 +49,7 @@ pipeline {
             steps {
 
                 
-                sh "sed -i 's|rajeeb007/for_helm:2.0|rajeeb007/for_helm:2.1|g' jenkins-maven/values.yaml"
+                sh "sed -i 's|rajeeb007/hello-world1|rajeeb007/hello-world1:1.0|g' jenkins-maven/values.yaml"
 
             }
         }
