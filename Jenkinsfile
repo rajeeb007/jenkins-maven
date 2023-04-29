@@ -44,7 +44,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/hello-world1:1.${build_number}'
+                sh 'docker push rajeeb007/hello-world2:1.${build_number}'
 
             }
 

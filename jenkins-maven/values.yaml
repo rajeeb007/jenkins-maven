@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: rajeeb007/hello-world1:1.0
+  repository: rajeeb007/hello-world2:1.0
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   # tag: "1.0"
