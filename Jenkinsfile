@@ -53,9 +53,7 @@ pipeline {
             steps {
 
                 
-                // sh "sed -i 's|rajeeb007/hello-world1:1.0|rajeeb007/hello-world1:1.${build_number}|g' jenkins-maven/values.yaml"
-                sh "sed -i 's|1.0|1.${build_number}|g' jenkins-maven/values.yaml"
-
+                sh "sed -i 's|rajeeb007/hello-world1:1.0|rajeeb007/hello-world1:1.${build_number}|g' jenkins-maven/values.yaml"
 
             }
         }
