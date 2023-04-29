@@ -3,6 +3,9 @@ pipeline {
     environment{
         DOCKERHUB_CREDENTIALS = credentials('docker_key')
         AWS_ACCOUNT_ID="170771122394"
+        build_number = "${env.BUILD_ID}"
+        AWS_DEFAULT_REGION="us-east-1"
+        IMAGE_REPO_NAME="for-fun"
     }
     stages{
         stage('git checkout'){
@@ -23,7 +26,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/hello-world1 .'
+                sh 'docker build -t rajeeb007/hello-world1:${env.BUILD_ID} .'
                
             }
 
@@ -41,7 +44,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/hello-world1'
+                sh 'docker push rajeeb007/hello-world1:${env.BUILD_ID}'
 
             }
 
@@ -50,7 +53,7 @@ pipeline {
             steps {
 
                 
-                sh "sed -i 's|rajeeb007/hello-world1|rajeeb007/hello-world1:1.0|g' jenkins-maven/values.yaml"
+                sh "sed -i 's|rajeeb007/hello-world1:1.0|rajeeb007/hello-world1:${env.BUILD_ID}|g' jenkins-maven/values.yaml"
 
             }
         }
