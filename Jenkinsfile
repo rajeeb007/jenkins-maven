@@ -73,6 +73,12 @@ pipeline {
                     }
                 }
             }
+        }
+         stage('pass buildnumber to another pipeline') {
+            steps {
+                
+                build job: 'deploy-jenkins-maven-helm', parameters: [string(name: 'build_number', value: "${build_number}")]
+            }
         }    
 
     }
