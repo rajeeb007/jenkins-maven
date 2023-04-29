@@ -26,7 +26,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/hello-world1:${env.BUILD_ID} .'
+                sh 'docker build -t rajeeb007/hello-world1:1.0 .'
                
             }
 
